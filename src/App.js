@@ -30,6 +30,17 @@ function App() {
         });
     };
 
+    const onDelete = (index) => {
+        console.log(index);
+
+        setList((prevState) => {
+            const deleteList = prevState.filter((item, i) => {
+                return i !== index && item;
+            });
+            return deleteList;
+        });
+    };
+
     // JSX
     return (
         <div>
@@ -42,6 +53,7 @@ function App() {
                 <div key={index}>
                     <input value={item} readOnly />
                     <button onClick={() => onEdit(index)}>Edit</button>
+                    <button onClick={() => onDelete(index)}>Delete</button>
                 </div>
             ))}
         </div>
