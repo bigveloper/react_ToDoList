@@ -18,6 +18,21 @@ function App() {
         setValue('');
     };
 
+    const onEdit = (index) => {
+        console.log(index);
+
+        const editText = prompt();
+        console.log(editText);
+
+        setList((prevState) => {
+            const editList = prevState.map((item, i) => {
+                return i === index ? editText : item;
+            });
+
+            return editList;
+        });
+    };
+
     // JSX
     return (
         <div className="App">
@@ -27,7 +42,10 @@ function App() {
             <button onClick={onClick}> Add </button>
             <hr />
             {list.map((item, index) => (
-                <div>{item}</div>
+                <div>
+                    <input value={item} readOnly />
+                    <button onClick={() => onEdit(index)}>Edit</button>
+                </div>
             ))}
         </div>
     );
