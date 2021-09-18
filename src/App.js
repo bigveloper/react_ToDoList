@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 
 // Component
 function App() {
@@ -91,6 +90,56 @@ function App() {
             <input type="text" placeHolder="사용불가" disabled />
             <p>이렇게도 응용을 해본다.</p>
             <hr />
+            <h1>password</h1>
+            <input type="password" />
+            <p>type="password" 를 사용하면 input box 안의 내용이 보이지 않는다.</p>
+            <hr />
+            <h1>button</h1>
+            <input type="button" value="click" onClick={() => alert('Hello React')} />
+            <hr />
+            <h1>submit</h1>
+            <input type="submit" value="보내기" onClick={() => alert('서버로 전송 하였습니다.')} />
+            <br />
+            <br />
+            <form action="http://www.ulalalab.com">
+                <input type="submit" value="가자~!!" />
+            </form>
+            <hr />
+            <h1>file upload</h1>
+            <form action="http://localhost/upload.php" method="php" enctype="multipart/form-data">
+                <input type="file" name="selected=file" />
+                <input type="submit" />
+            </form>
+            <hr />
+            <h1>select</h1>
+            what is your favorite brand?
+            <form>
+                <select name="car">
+                    <option value="-">select</option>
+                    <option value="Benz">Benz</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Kia">Kia</option>
+                </select>
+                <br />
+                <br />
+                <select name="car2" multiple>
+                    <option value="-">select2</option>
+                    <option value="BMW">BMW</option>
+                    <option value="VOLVO">VOLVO</option>
+                    <option value="Jaguar">Jaguar</option>
+                    <option value="GM">GM</option>
+                </select>
+            </form>
+            <hr />
+            <h1>textarea</h1>
+            <form action="http://ulalalab.com">
+                <p>textarea : </p>
+                <textarea cols="50" rows="5" placeholder="입력하세요."></textarea>
+                <input type="reset" value="저장" onClick={() => alert('사실은 reset 이었다.')} />
+                <input type="submit" value="리셋" onClick={() => alert('사실은 이동 할거다.')} />
+            </form>
+            <hr />
             <h1>checkbox</h1>
             <input type="checkbox" />
             <hr />
@@ -127,6 +176,39 @@ function App() {
             <label>
                 <input type="radio" name="car" /> BMW
             </label>
+            <hr />
+            <h1>table Tag</h1>
+            <p> tr 은 행을 td 는 열을 만든다.</p>
+            <p> 먼저는 tr 로 행을 만들고 td 로 열을 만드는게 순서다.</p>
+            <table>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>D</td>
+                </tr>
+            </table>
+            <p> 눈에는 보이지 않지면 행과 열이 만들어 진 것이다. 선은 CSS 로 만들어 줄 수 있다.</p>
+            <hr />
+            <h1>ul Tag, li Tag</h1>
+            <p>ul 과 li 는 한 쌍이다.</p>
+            <p>ul 내부에는 li 가 반드시 있어야 한다. li 를 ul 이 반드시 감싸줘야 한다.</p>
+            <ul>
+                <li>Benz</li>
+                <li>Audi</li>
+                <li>Bmw</li>
+                <li>Hyundai</li>
+                <li>Kia</li>
+            </ul>
+            <hr />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
     );
 }
