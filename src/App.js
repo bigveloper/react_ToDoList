@@ -56,6 +56,26 @@ function App() {
                     <button onClick={() => onDelete(index)}>Delete</button>
                 </div>
             ))}
+            <hr />
+            <h1>a Tag</h1>
+            <a href="http://www.google.com"> Google 로 현재 창에서 이동 합니다. </a>
+            <br />
+            <hr />
+            <a href="http://www.github.com" target="_blank">
+                github 로 새 창에서 이동 합니다.
+            </a>
+            <hr />
+            <a href="http://www.naver.com" target="_self">
+                Naver 로 현재 창에서 이동 합니다.
+            </a>
+            <hr />
+            <a href="http://www.google.com" target="_parent">
+                target="_parent" google
+            </a>
+            <hr />
+            <a href="http://www.github.com" target="_top">
+                target="_top" github
+            </a>
         </div>
     );
 }
