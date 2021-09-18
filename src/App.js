@@ -45,7 +45,6 @@ function App() {
         <div className="App">
             <h1> To Do List </h1>
             <hr />
-
             <input value={value} onChange={onChange} />
             <button onClick={onClick}>Add</button>
             <hr />
@@ -61,9 +60,9 @@ function App() {
             <a href="http://www.google.com"> Google 로 현재 창에서 이동 합니다. </a>
             <br />
             <hr />
-            <a href="http://www.github.com" target="_blank">
+            {/* <a href="http://www.github.com" target="_blank">
                 github 로 새 창에서 이동 합니다.
-            </a>
+            </a> */}
             <hr />
             <a href="http://www.naver.com" target="_self">
                 Naver 로 현재 창에서 이동 합니다.
@@ -76,6 +75,48 @@ function App() {
             <a href="http://www.github.com" target="_top">
                 target="_top" github
             </a>
+            <hr />
+            <h1>input Tag</h1>
+            <input type="text" />
+            <p>뭔가를 적고싶게 만드는 박스가 나옴</p>
+            <hr />
+            <input type="text" value="소주한잔" />
+            <p>값을 넣고 시작함</p>
+            <hr />
+            <input type="text" placeHolder="노래방 18번을 적으시오." />
+            <p>적을 내용을 안내 해줄 수 있음</p>
+            <hr />
+            <input type="text" disabled />
+            <p>사용하지 못하도록 비활성화도 할 수 있음</p>
+            <input type="text" placeHolder="사용불가" disabled />
+            <p>이렇게도 응용을 해본다.</p>
+            <hr />
+            <h1>checkbox</h1>
+            <input type="checkbox" />
+            <hr />
+            <h2>checkbox labeling</h2>
+            <label>
+                <input type="checkbox" name="car" /> Benz
+            </label>
+            <label>
+                <input type="checkbox" name="car" /> Audi
+            </label>
+            <label>
+                <input type="checkbox" name="car" /> BMW
+            </label>
+            <hr />
+            <h1>radio</h1>
+            <p>checkbox 와 비슷하지만 radio 는 택1 이다.</p>
+            <hr />
+            <label>
+                <input type="radio" name="car" /> Benz
+            </label>
+            <label>
+                <input type="radio" name="car" /> Audi
+            </label>
+            <label>
+                <input type="radio" name="car" /> BMW
+            </label>
         </div>
     );
 }
