@@ -105,6 +105,16 @@ function App() {
                 <input type="checkbox" name="car" /> BMW
             </label>
             <hr />
+            <p>checked</p>
+            <label>
+                <input type="checkbox" name="car" /> Benz
+            </label>
+            <label>
+                <input type="checkbox" name="car" /> Audi
+            </label>
+            <label>
+                <input type="checkbox" name="car" checked /> BMW
+            </label>
             <h1>radio</h1>
             <p>checkbox 와 비슷하지만 radio 는 택1 이다.</p>
             <hr />
