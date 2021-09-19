@@ -47,6 +47,11 @@ function App() {
         setInputId(e.target.value);
     };
 
+    const onInputPd = (e) => {
+        console.log(inputPd);
+        setInputPd(e.target.value);
+    };
+
     // JSX
     return (
         <div className="App">
@@ -63,7 +68,11 @@ function App() {
                 </div>
             ))}
             <hr />
+            <p> input text </p>
             <input type="text" value={inputId} placeholder="ID 를 입력하시오" onChange={onInputId} />
+            <hr />
+            <p> input password </p>
+            <input type="password" value={inputPd} placeholder="Password 를 입력하시오." onChange={onInputPd} />
         </div>
     );
 }
