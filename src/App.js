@@ -14,6 +14,7 @@ function App() {
     const [selected, setSelected] = useState('');
     const selectList = ['Benz', 'Audi', 'Bmw', 'Hyundai', 'Kia'];
     const [areaText, setAreaText] = useState('');
+    const [fileupload, setFileupload] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -90,6 +91,9 @@ function App() {
     const onAreaText = (e) => setAreaText(e.target.value);
     console.log(areaText);
 
+    const onFile = (e) => setFileupload(e.target.value);
+    console.log(fileupload);
+
     // JSX
     return (
         <div className="App">
@@ -145,6 +149,9 @@ function App() {
                 <textarea type="text" value={areaText} onChange={onAreaText} />
                 <button onClick>Submit</button>
             </form>
+            <p>file upload</p>
+            <input type="file" vlaue={fileupload} onChange={onFile} />
+            <button type="submit">전송</button>
         </div>
     );
 }
