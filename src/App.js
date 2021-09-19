@@ -13,6 +13,7 @@ function App() {
     const [userPassword, setUserPassword] = useState('');
     const [selected, setSelected] = useState('');
     const selectList = ['Benz', 'Audi', 'Bmw', 'Hyundai', 'Kia'];
+    const [areaText, setAreaText] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -86,6 +87,9 @@ function App() {
 
     const onSelect = (e) => setSelected(e.target.value);
 
+    const onAreaText = (e) => setAreaText(e.target.value);
+    console.log(areaText);
+
     // JSX
     return (
         <div className="App">
@@ -136,6 +140,11 @@ function App() {
                 ))}
             </select>
             <hr />
+            <p>text area</p>
+            <form onSubmit>
+                <textarea type="text" value={areaText} onChange={onAreaText} />
+                <button onClick>Submit</button>
+            </form>
         </div>
     );
 }
