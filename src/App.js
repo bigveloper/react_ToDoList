@@ -52,6 +52,10 @@ function App() {
         setInputPd(e.target.value);
     };
 
+    const onSubClick = () => {
+        console.log('입력 완료');
+    };
+
     // JSX
     return (
         <div className="App">
@@ -73,6 +77,9 @@ function App() {
             <hr />
             <p> input password </p>
             <input type="password" value={inputPd} placeholder="Password 를 입력하시오." onChange={onInputPd} />
+            <button type="submit" onClick={onSubClick}>
+                입력
+            </button>
         </div>
     );
 }
