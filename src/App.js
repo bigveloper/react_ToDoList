@@ -8,6 +8,7 @@ function App() {
     const [inputId, setInputId] = useState('');
     const [inputPd, setInputPd] = useState('');
     const [isChecked, setIsChecked] = useState(false);
+    const [isRadio, setIsRadio] = useState(false);
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -62,6 +63,11 @@ function App() {
         setIsChecked(!isChecked);
     };
 
+    const clickOnRadio = (index) => {
+        console.log(!isRadio);
+        setIsRadio(!isRadio);
+    };
+
     // JSX
     return (
         <div className="App">
@@ -89,6 +95,13 @@ function App() {
             </button>
             <hr />
             React 가 좋은가요? <input type="checkbox" checked={isChecked} onChange={checkOnChange} />
+            <hr />
+            <input type="radio" id="radio" checked={isRadio} onClick={() => clickOnRadio()} />
+            <label htmlFor="radio">Radio 어렵네</label>
+            <br />
+            <input type="radio" id="radio2" checked={isRadio} onClick={() => clickOnRadio()} />
+            <label htmlFor="radio2">Radio 쉽네</label>
+            <hr />
         </div>
     );
 }
