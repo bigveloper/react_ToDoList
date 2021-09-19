@@ -15,6 +15,11 @@ function App() {
     const selectList = ['Benz', 'Audi', 'Bmw', 'Hyundai', 'Kia'];
     const [areaText, setAreaText] = useState('');
     const [fileupload, setFileupload] = useState('');
+    const [user, setUser] = useState({
+        username: '',
+        userpw,
+    });
+    const { username, userpw } = user;
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -94,6 +99,13 @@ function App() {
     const onFile = (e) => setFileupload(e.target.value);
     console.log(fileupload);
 
+    const onUser = (e) => {
+        const { username, value } = e.target;
+    };
+    const onReset = () => {
+        setUser({ username: '', userpw: '' });
+    };
+
     // JSX
     return (
         <div className="App">
@@ -149,9 +161,22 @@ function App() {
                 <textarea type="text" value={areaText} onChange={onAreaText} />
                 <button onClick>Submit</button>
             </form>
+            <hr />
             <p>file upload</p>
             <input type="file" vlaue={fileupload} onChange={onFile} />
             <button type="submit">전송</button>
+            <hr />
+            <p>a Tag</p>
+            <a href="http://www.github.com" target="_blank">
+                Github 로 이동
+            </a>
+            <hr />
+            <p>Reset button</p>
+            <input type="text" name="username" value={username} placeholder="이름" onChange={onUser} />
+            <input type="password" name="userpw" value={userpw} placeholder="암호" onChange={onUser} />
+            <button type="reset" onClick={onReset}>
+                Reset
+            </button>
         </div>
     );
 }
