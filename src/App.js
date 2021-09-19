@@ -5,6 +5,8 @@ function App() {
     // State
     const [value, setValue] = useState('');
     const [list, setList] = useState([]);
+    const [inputId, setInputId] = useState('');
+    const [inputPd, setInputPd] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -39,6 +41,12 @@ function App() {
             return deleteList;
         });
     };
+
+    const onInputId = (e) => {
+        console.log(inputId);
+        setInputId(e.target.value);
+    };
+
     // JSX
     return (
         <div className="App">
@@ -54,6 +62,8 @@ function App() {
                     <button onClick={() => onDelete(index)}>Delete</button>
                 </div>
             ))}
+            <hr />
+            <input type="text" value={inputId} placeholder="ID 를 입력하시오" onChange={onInputId} />
         </div>
     );
 }
