@@ -173,15 +173,21 @@ function App() {
             </button>
             <hr />
             <p>Table</p>
-            <table border="1" width="50%" height="200" cellSpacing="1">
+            <table border="1" width="20%" height="100" cellSpacing="1">
                 <caption>Favorite Language</caption>
                 <tr align="center" bgcolor="white">
-                    <td rowSpan="2"></td>
-                    <td></td>
+                    <td rowSpan="2" bgcolor="red">
+                        JavaScript
+                    </td>
+                    <td bgcolor="blue">Java</td>
+                    <td bgcolor="green">TypeScript</td>
                 </tr>
                 <tr align="center" bgcolor="white">
-                    <td colSpan="2"></td>
-                    <td></td>
+                    <td colSpan="2" bgcolor="yellow">
+                        HTML
+                    </td>
+                    <td>Python</td>
+                    <td>Go</td>
                 </tr>
             </table>
         </div>
