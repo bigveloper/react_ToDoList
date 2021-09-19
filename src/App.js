@@ -15,11 +15,7 @@ function App() {
     const selectList = ['Benz', 'Audi', 'Bmw', 'Hyundai', 'Kia'];
     const [areaText, setAreaText] = useState('');
     const [fileupload, setFileupload] = useState('');
-    const [user, setUser] = useState({
-        username: '',
-        userpw,
-    });
-    const { username, userpw } = user;
+    const [user, setUser] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -99,11 +95,10 @@ function App() {
     const onFile = (e) => setFileupload(e.target.value);
     console.log(fileupload);
 
-    const onUser = (e) => {
-        const { username, value } = e.target;
-    };
+    const onUser = (e) => setUser(e.target.value);
+    console.log(user);
     const onReset = () => {
-        setUser({ username: '', userpw: '' });
+        setUser('');
     };
 
     // JSX
@@ -172,8 +167,7 @@ function App() {
             </a>
             <hr />
             <p>Reset button</p>
-            <input type="text" name="username" value={username} placeholder="이름" onChange={onUser} />
-            <input type="password" name="userpw" value={userpw} placeholder="암호" onChange={onUser} />
+            <input type="text" value={user} placeholder="이름" onChange={onUser} />
             <button type="reset" onClick={onReset}>
                 Reset
             </button>
