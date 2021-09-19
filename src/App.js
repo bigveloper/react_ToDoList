@@ -9,6 +9,8 @@ function App() {
     const [inputPd, setInputPd] = useState('');
     const [isChecked, setIsChecked] = useState(false);
     const [isRadio, setIsRadio] = useState(false);
+    const [userId, setUserId] = useState('');
+    const [userPassword, setUserPassword] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -68,6 +70,18 @@ function App() {
         setIsRadio(!isRadio);
     };
 
+    const onUserId = (e) => {
+        setUserId(e.target.value);
+    };
+    const onUserPassword = (e) => {
+        setUserPassword(e.target.value);
+    };
+
+    const clickSubmit = (e) => {
+        e.preventDefault();
+        console.log(userId, userPassword);
+    };
+
     // JSX
     return (
         <div className="App">
@@ -102,6 +116,12 @@ function App() {
             <input type="radio" id="radio2" checked={isRadio} onClick={() => clickOnRadio()} />
             <label htmlFor="radio2">Radio 쉽네</label>
             <hr />
+            <p>form tag</p>
+            <form onSubmit={clickSubmit}>
+                <input value={userId} type="text" placeholder="아이디" onChange={onUserId} />
+                <input value={userPassword} type="password" placeholder="비밀번호" onChange={onUserPassword} />
+                <input type="submit" value="로그인" />
+            </form>
         </div>
     );
 }
