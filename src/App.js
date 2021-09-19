@@ -171,6 +171,19 @@ function App() {
             <button type="reset" onClick={onReset}>
                 Reset
             </button>
+            <hr />
+            <p>Table</p>
+            <table border="1" width="50%" height="200" cellSpacing="1">
+                <caption>Favorite Language</caption>
+                <tr align="center" bgcolor="white">
+                    <td rowSpan="2"></td>
+                    <td></td>
+                </tr>
+                <tr align="center" bgcolor="white">
+                    <td colSpan="2"></td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
     );
 }
