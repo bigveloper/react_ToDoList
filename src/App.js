@@ -18,6 +18,7 @@ function App() {
     const [user, setUser] = useState('');
     const [tdSelect, setTdSelect] = useState('');
     const languageList = ['JavaScript', 'HTML', 'CSS'];
+    const [arr, setArr] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -89,9 +90,11 @@ function App() {
         console.log(userId, userPassword);
     };
 
-    const onSelect = (e) => setSelected(e.target.value);
-    console.log(selected);
-
+    const onSelect = (e) => {
+        setSelected(e.target.value);
+        console.log(selected);
+        return;
+    };
     const onAreaText = (e) => setAreaText(e.target.value);
     console.log(areaText);
     const textReset = () => {
@@ -108,6 +111,8 @@ function App() {
     };
     const tdClick = (e) => setTdSelect(e.target.value);
     console.log(tdSelect);
+
+    const onArr = (e) => setArr(e.target.value);
 
     // JSX
     return (
@@ -219,6 +224,8 @@ function App() {
                 </tr>
             </table>
             <hr />
+            <p>array</p>
+            <input value={arr} onChange={onArr} />
         </div>
     );
 }
