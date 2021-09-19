@@ -8,7 +8,7 @@ function App() {
     const [inputId, setInputId] = useState('');
     const [inputPd, setInputPd] = useState('');
     const [isChecked, setIsChecked] = useState(false);
-    const [isRadio, setIsRadio] = useState(false);
+    const [isRadio, setIsRadio] = useState('');
     const [userId, setUserId] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const [selected, setSelected] = useState('');
@@ -70,7 +70,7 @@ function App() {
         setIsChecked(!isChecked);
     };
 
-    const clickOnRadio = (index) => {
+    const clickOnRadio = () => {
         console.log(!isRadio);
         setIsRadio(!isRadio);
     };
@@ -88,9 +88,13 @@ function App() {
     };
 
     const onSelect = (e) => setSelected(e.target.value);
+    console.log(selected);
 
     const onAreaText = (e) => setAreaText(e.target.value);
     console.log(areaText);
+    const textReset = () => {
+        setAreaText('');
+    };
 
     const onFile = (e) => setFileupload(e.target.value);
     console.log(fileupload);
@@ -129,11 +133,14 @@ function App() {
             <hr />
             React 가 좋은가요? <input type="checkbox" checked={isChecked} onChange={checkOnChange} />
             <hr />
-            <input type="radio" id="radio" checked={isRadio} onClick={() => clickOnRadio()} />
-            <label htmlFor="radio">Radio 어렵네</label>
-            <br />
-            <input type="radio" id="radio2" checked={isRadio} onClick={() => clickOnRadio()} />
-            <label htmlFor="radio2">Radio 쉽네</label>
+            <p> Radio </p>
+            <form>
+                <input type="radio" value={isRadio} id="radio" checked={isRadio} onClick={clickOnRadio} />
+                Radio 어렵네
+                <br />
+                <input type="radio" value={isRadio} id="radio2" checked={isRadio} onClick={clickOnRadio} />
+                Radio 쉽네
+            </form>
             <hr />
             <p>Form Tag</p>
             <form onSubmit={clickSubmit}>
@@ -155,6 +162,9 @@ function App() {
             <form onSubmit>
                 <textarea type="text" value={areaText} onChange={onAreaText} />
                 <button onClick>Submit</button>
+                <button type="reset" onClick={textReset}>
+                    Reset
+                </button>
             </form>
             <hr />
             <p>file upload</p>
@@ -193,6 +203,7 @@ function App() {
                     <td>Go</td>
                 </tr>
             </table>
+            <hr />
         </div>
     );
 }
