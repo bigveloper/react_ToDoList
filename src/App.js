@@ -178,7 +178,9 @@ function App() {
                 <tr align="center" bgcolor="white">
                     <td rowSpan="2" bgcolor="red">
                         JavaScript
-                        <a href="https://developer.mozilla.org/">검색</a>
+                        <a href="https://developer.mozilla.org/" title="MDN Site">
+                            검색
+                        </a>
                     </td>
                     <td bgcolor="blue">Java</td>
                     <td bgcolor="green">TypeScript</td>
