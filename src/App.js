@@ -16,6 +16,8 @@ function App() {
     const [areaText, setAreaText] = useState('');
     const [fileupload, setFileupload] = useState('');
     const [user, setUser] = useState('');
+    const [tdSelect, setTdSelect] = useState('');
+    const languageList = ['JavaScript', 'HTML', 'CSS'];
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -104,6 +106,8 @@ function App() {
     const onReset = () => {
         setUser('');
     };
+    const tdClick = (e) => setTdSelect(e.target.value);
+    console.log(tdSelect);
 
     // JSX
     return (
@@ -201,6 +205,17 @@ function App() {
                     </td>
                     <td>Python</td>
                     <td>Go</td>
+                </tr>
+                <tr aligin="conter" bgcolor="white">
+                    <td>
+                        <select value={tdSelect} onClick={tdClick}>
+                            {languageList.map((item) => (
+                                <option value={item} key={item}>
+                                    {item}
+                                </option>
+                            ))}
+                        </select>
+                    </td>
                 </tr>
             </table>
             <hr />
