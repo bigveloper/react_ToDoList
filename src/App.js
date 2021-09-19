@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import './App.css';
 // Component
 function App() {
     // State
@@ -7,6 +7,7 @@ function App() {
     const [list, setList] = useState([]);
     const [inputId, setInputId] = useState('');
     const [inputPd, setInputPd] = useState('');
+    const [isChecked, setIsChecked] = useState(false);
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -56,6 +57,11 @@ function App() {
         console.log('입력 완료');
     };
 
+    const checkOnChange = () => {
+        console.log(!isChecked);
+        setIsChecked(!isChecked);
+    };
+
     // JSX
     return (
         <div className="App">
@@ -77,9 +83,12 @@ function App() {
             <hr />
             <p> input password </p>
             <input type="password" value={inputPd} placeholder="Password 를 입력하시오." onChange={onInputPd} />
+            <hr />
             <button type="submit" onClick={onSubClick}>
                 입력
             </button>
+            <hr />
+            React 가 좋은가요? <input type="checkbox" checked={isChecked} onChange={checkOnChange} />
         </div>
     );
 }
