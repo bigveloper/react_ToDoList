@@ -11,6 +11,8 @@ function App() {
     const [isRadio, setIsRadio] = useState(false);
     const [userId, setUserId] = useState('');
     const [userPassword, setUserPassword] = useState('');
+    const [selected, setSelected] = useState('');
+    const selectList = ['Benz', 'Audi', 'Bmw', 'Hyundai', 'Kia'];
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -82,6 +84,8 @@ function App() {
         console.log(userId, userPassword);
     };
 
+    const onSelect = (e) => setSelected(e.target.value);
+
     // JSX
     return (
         <div className="App">
@@ -116,12 +120,22 @@ function App() {
             <input type="radio" id="radio2" checked={isRadio} onClick={() => clickOnRadio()} />
             <label htmlFor="radio2">Radio 쉽네</label>
             <hr />
-            <p>form tag</p>
+            <p>Form Tag</p>
             <form onSubmit={clickSubmit}>
                 <input value={userId} type="text" placeholder="아이디" onChange={onUserId} />
                 <input value={userPassword} type="password" placeholder="비밀번호" onChange={onUserPassword} />
                 <input type="submit" value="로그인" />
             </form>
+            <hr />
+            <p>select box</p>
+            <select value={selected} onChange={onSelect}>
+                {selectList.map((item) => (
+                    <option value={item} key={item}>
+                        {item}
+                    </option>
+                ))}
+            </select>
+            <hr />
         </div>
     );
 }
