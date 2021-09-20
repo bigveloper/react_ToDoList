@@ -330,18 +330,15 @@ function App() {
             </form>
             <hr />
             <p>전화번호부</p>
-            <form>
-                <input type="text" value={callBook} onChange={onCallbook} />
-                <input type="text" value={callUser} onChange={onCalluser} />
-                <button onClick={addCallbook}>ADD</button>
-                {callList.map((item, index) => (
-                    <div key={index}>
-                        <input value={item} readOnly />
-                        <button onClick={() => numberEdit(index)}>Edit</button>
-                        <button onClick={() => numberDelete(index)}>Delete</button>
-                    </div>
-                ))}
-            </form>
+            <input type="text" value={callBook} onChange={onCallbook} />
+            <button onClick={addCallbook}>ADD</button>
+            {callList.map((item, index) => (
+                <div key={index}>
+                    <input value={item} readOnly />
+                    <button onClick={() => numberEdit(index)}>Edit</button>
+                    <button onClick={() => numberDelete(index)}>Delete</button>
+                </div>
+            ))}
         </div>
     );
 }
