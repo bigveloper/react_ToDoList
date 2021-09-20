@@ -111,7 +111,7 @@ function App() {
         setUser('');
     };
     const tdClick = (e) => {
-        setTdSelect((prevState) => [...prevState, value]);
+        setTdSelect(e.target.value);
         console.log(tdSelect);
         return;
     };
@@ -223,7 +223,7 @@ function App() {
                 </tr>
                 <tr aligin="center" bgcolor="white">
                     <td>
-                        <select value={tdSelect} onClick={tdClick}>
+                        <select value={tdSelect} onChange={tdClick}>
                             {languageList.map((item) => (
                                 <option value={item} key={item}>
                                     {item}
@@ -236,16 +236,22 @@ function App() {
             <hr />
             <p> ul li</p>
             <ul>
-                <li>
-                    <b>a</b>
-                </li>
+                <b>where we going?</b>
+
+                <a href="www.naver.com" target="_blank" rel="noreferrer">
+                    <li>
+                        <b>Naver</b>
+                    </li>
+                </a>
+
                 <li>b</li>
                 <li>c</li>
             </ul>
             <hr />
-            <p>onDbClick</p>
+            <p>doubleClick</p>
             <input value={click} onChange={ondblclick} />
             <button onDoubleClick={onDbClick}>doubleClick</button>
+            <hr />
         </div>
     );
 }
