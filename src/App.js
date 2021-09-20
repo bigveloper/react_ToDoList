@@ -19,6 +19,8 @@ function App() {
     const [tdSelect, setTdSelect] = useState('');
     const languageList = ['JavaScript', 'HTML', 'CSS'];
     const [arr, setArr] = useState('');
+    const [arrlist, setArrlist] = useState([]);
+    const [click, setClick] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -109,10 +111,23 @@ function App() {
     const onReset = () => {
         setUser('');
     };
-    const tdClick = (e) => setTdSelect(e.target.value);
-    console.log(tdSelect);
-
+    const tdClick = (e) => {
+        setTdSelect((prevState) => [...prevState, value]);
+        console.log(tdSelect);
+        return;
+    };
     const onArr = (e) => setArr(e.target.value);
+    const addArr = () => {
+        console.log(arr);
+        if (!value) {
+            alert('Array');
+        }
+        setArrlist((prevState) => [...prevState, value]);
+        setArr('');
+    };
+
+    const ondblclick = (e) => setClick(e.target.value);
+    const doubleClick
 
     // JSX
     return (
@@ -181,7 +196,7 @@ function App() {
             <button type="submit">전송</button>
             <hr />
             <p>a Tag</p>
-            <a href="http://www.github.com" target="_blank">
+            <a href="http://www.github.com" target="_blank" rel="noreferrer">
                 Github 로 이동
             </a>
             <hr />
@@ -211,7 +226,7 @@ function App() {
                     <td>Python</td>
                     <td>Go</td>
                 </tr>
-                <tr aligin="conter" bgcolor="white">
+                <tr aligin="center" bgcolor="white">
                     <td>
                         <select value={tdSelect} onClick={tdClick}>
                             {languageList.map((item) => (
@@ -226,6 +241,26 @@ function App() {
             <hr />
             <p>array</p>
             <input value={arr} onChange={onArr} />
+            <button onClick={addArr}>ADD</button>
+            <hr />
+            {arrlist.map((item, index) => (
+                <div key={index}>
+                    <input key={item} readOnly />
+                </div>
+            ))}
+            <hr />
+            <p> ul li</p>
+            <ul>
+                <li>
+                    <b>a</b>
+                </li>
+                <li>b</li>
+                <li>c</li>
+            </ul>
+            <hr />
+            <p>onDbClick</p>
+            <input value={click} onChang={ondblclick} />
+            <button onDoubleClick={doubleClick}>DoubleClick</button>
         </div>
     );
 }
