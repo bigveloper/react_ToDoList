@@ -22,6 +22,7 @@ function App() {
     const [inputNumber, setInputNumber] = useState('');
     const [userName, setUserName] = useState('');
     const [callBook, setCallBook] = useState('');
+    const [callUser, setCallUser] = useState('');
     const [callList, setCallList] = useState([]);
 
     // Event
@@ -152,6 +153,13 @@ function App() {
         const callRegex = /^[0-9\b -]{0,11}$/;
         if (callRegex.test(e.target.value)) {
             setCallBook(e.target.value);
+        }
+    };
+    const onCalluser = (e) => {
+        console.log(callUser);
+        const userRegex = /^[ㄱ-ㅎ\가-힣\b -]{0,8}$/;
+        if (userRegex.test(e.target.value)) {
+            setCallUser(e.target.value);
         }
     };
     const addCallbook = () => {
@@ -322,15 +330,18 @@ function App() {
             </form>
             <hr />
             <p>전화번호부</p>
-            <input type="text" value={callBook} onChange={onCallbook} />
-            <button onClick={addCallbook}>ADD</button>
-            {callList.map((item, index) => (
-                <div key={index}>
-                    <input value={item} readOnly />
-                    <button onClick={() => numberEdit(index)}>Edit</button>
-                    <button onClick={() => numberDelete(index)}>Delete</button>
-                </div>
-            ))}
+            <form>
+                <input type="text" value={callBook} onChange={onCallbook} />
+                <input type="text" value={callUser} onChange={onCalluser} />
+                <button onClick={addCallbook}>ADD</button>
+                {callList.map((item, index) => (
+                    <div key={index}>
+                        <input value={item} readOnly />
+                        <button onClick={() => numberEdit(index)}>Edit</button>
+                        <button onClick={() => numberDelete(index)}>Delete</button>
+                    </div>
+                ))}
+            </form>
         </div>
     );
 }
