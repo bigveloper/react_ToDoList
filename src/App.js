@@ -24,6 +24,8 @@ function App() {
     const [callBook, setCallBook] = useState('');
     const [callList, setCallList] = useState([]);
     const [count, setCount] = useState(0);
+    const [selbox, setSelbox] = useState('');
+    const selboxList = ['MacBook', 'Gram', 'Lenovo', 'Asus', 'Samsung', 'Dell'];
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -193,6 +195,11 @@ function App() {
         return;
     };
 
+    const onSel = (e) => {
+        console.log(selbox);
+        setSelbox(e.target.value);
+    };
+
     // JSX
     return (
         <div className="App">
@@ -343,6 +350,15 @@ function App() {
             <input value={count} onChange={onInCount} />
             <button onClick={() => setCount(count + 1)}> Click + me </button>
             <button onClick={() => setCount(count - 1)}> Click - me </button>
+            <hr />
+            <p> what do you want laptop?</p>
+            <select value={selbox} onChange={onSel}>
+                {selboxList.map((item) => (
+                    <option value={item} key={item}>
+                        {item}
+                    </option>
+                ))}
+            </select>
         </div>
     );
 }
