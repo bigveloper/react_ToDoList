@@ -22,8 +22,8 @@ function App() {
     const [inputNumber, setInputNumber] = useState('');
     const [userName, setUserName] = useState('');
     const [callBook, setCallBook] = useState('');
-    const [callUser, setCallUser] = useState('');
     const [callList, setCallList] = useState([]);
+    const [count, setCount] = useState(0);
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -155,13 +155,6 @@ function App() {
             setCallBook(e.target.value);
         }
     };
-    const onCalluser = (e) => {
-        console.log(callUser);
-        const userRegex = /^[ㄱ-ㅎ\가-힣\b -]{0,8}$/;
-        if (userRegex.test(e.target.value)) {
-            setCallUser(e.target.value);
-        }
-    };
     const addCallbook = () => {
         console.log(callBook);
         if (!callBook) {
@@ -193,6 +186,9 @@ function App() {
             return callDeleteList;
         });
     };
+
+    const onInCount = (e) => setCount(e.target.value);
+    console.log(count);
 
     // JSX
     return (
@@ -339,6 +335,11 @@ function App() {
                     <button onClick={() => numberDelete(index)}>Delete</button>
                 </div>
             ))}
+            <hr />
+            <p>{count}</p>
+            <input value={count} onChange={onInCount} />
+            <button onClick={() => setCount(count + 1)}> Click + me </button>
+            <button onClick={() => setCount(count - 1)}> Click - me </button>
         </div>
     );
 }
