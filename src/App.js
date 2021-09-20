@@ -19,6 +19,7 @@ function App() {
     const [tdSelect, setTdSelect] = useState('');
     const languageList = ['JavaScript', 'HTML', 'CSS'];
     const [click, setClick] = useState('');
+    const [inputNumber, setInputNumber] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -121,6 +122,13 @@ function App() {
         console.log(click);
         if (!click) {
             alert('anything put yor message');
+        }
+    };
+
+    const numberChange = (e) => {
+        const regex = /^[0-9\b -]{0,11}$/;
+        if (regex.test(e.target.value)) {
+            setInputNumber(e.target.value);
         }
     };
 
@@ -238,7 +246,7 @@ function App() {
             <ul>
                 <b>where we going?</b>
 
-                <a href="www.naver.com" target="_blank" rel="noreferrer">
+                <a href="www.naver.com" target="_blank">
                     <li>
                         <b>Naver</b>
                     </li>
@@ -252,6 +260,8 @@ function App() {
             <input value={click} onChange={ondblclick} />
             <button onDoubleClick={onDbClick}>doubleClick</button>
             <hr />
+            <p>정규식 표현</p>
+            <input type="text" value={inputNumber} onChange={numberChange} />
         </div>
     );
 }
