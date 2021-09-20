@@ -368,8 +368,14 @@ function App() {
             </select>
             <hr />
             <p>you are favorite laptap</p>
-            <input type="radio" value={laptop} id="MacBook" name="MacBook" checked="false" onclick={flaptop} />
-            <input type="radio" value={laptop} id="LgGram" name="LgGram" onclick={flaptop} />
+            <label>
+                MacBook
+                <input type="radio" value={laptop} id="MacBook" name="laptop" checked="false" onclick={flaptop} />
+            </label>
+            <label>
+                LgGram
+                <input type="radio" value={laptop} id="LgGram" name="laptop" onclick={flaptop} />
+            </label>
         </div>
     );
 }
