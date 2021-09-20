@@ -20,6 +20,7 @@ function App() {
     const languageList = ['JavaScript', 'HTML', 'CSS'];
     const [click, setClick] = useState('');
     const [inputNumber, setInputNumber] = useState('');
+    const [userName, setUserName] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -126,9 +127,17 @@ function App() {
     };
 
     const numberChange = (e) => {
+        console.log(inputNumber);
         const regex = /^[0-9\b -]{0,11}$/;
         if (regex.test(e.target.value)) {
             setInputNumber(e.target.value);
+        }
+    };
+    const userNameChange = (e) => {
+        console.log(userName);
+        const regex2 = /^[a-z\b -]{0,30}$/;
+        if (regex2.test(e.target.value)) {
+            setUserName(e.target.value);
         }
     };
 
@@ -261,7 +270,8 @@ function App() {
             <button onDoubleClick={onDbClick}>doubleClick</button>
             <hr />
             <p>정규식 표현</p>
-            <input type="text" value={inputNumber} onChange={numberChange} />
+            userName : <input type="text" value={userName} onChange={userNameChange} />
+            phoneNumber : <input type="text" value={inputNumber} onChange={numberChange} />
         </div>
     );
 }
