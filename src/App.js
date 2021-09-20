@@ -77,9 +77,9 @@ function App() {
         console.log('입력 완료');
     };
 
-    const checkOnChange = () => {
+    const checkOnChange = (e) => {
         console.log(!isChecked);
-        setIsChecked(!isChecked);
+        setIsChecked(e.target.value);
     };
 
     const clickOnRadio = () => {
@@ -201,9 +201,9 @@ function App() {
         setSelbox(e.target.value);
     };
 
-    const flaptop = () => {
-        console.log(!laptop);
-        setLaptop(!laptop);
+    const flaptop = (e) => {
+        console.log(laptop);
+        setLaptop(e.target.value);
     };
     // JSX
     return (
@@ -231,7 +231,16 @@ function App() {
                 입력
             </button>
             <hr />
-            React 가 좋은가요? <input type="checkbox" checked={isChecked} onChange={checkOnChange} />
+            <p> CheckBox </p>
+            <label>
+                React 가 좋은가요?
+                <input type="checkbox" value={isChecked} checked={isChecked} name="framework" onChange={checkOnChange} />
+            </label>
+            <br />
+            <label>
+                Vue 가 더 좋은가요?
+                <input type="checkbox" value={isChecked} checked={isChecked} name="framework" onChange={checkOnChange} />
+            </label>
             <hr />
             <p> Radio </p>
             <label>
@@ -369,12 +378,13 @@ function App() {
             <hr />
             <p>you are favorite laptap</p>
             <label>
-                MacBook
-                <input type="radio" value={laptop} id="MacBook" name="laptop" checked="false" onclick={flaptop} />
+                <input type="radio" value={laptop} id="MacBook" name="laptop" checked="false" onclick={flaptop} /> MacBook
             </label>
             <label>
-                LgGram
-                <input type="radio" value={laptop} id="LgGram" name="laptop" onclick={flaptop} />
+                <input type="radio" value={laptop} id="LgGram" name="laptop" onclick={flaptop} /> LgGram
+            </label>
+            <label>
+                <input type="radio" value={laptop} id="ZenBook" name="laptop" onclick={flaptop} /> Asus ZenBook
             </label>
         </div>
     );
