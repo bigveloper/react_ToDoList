@@ -167,10 +167,13 @@ function App() {
         console.log(value);
         const callEdit = prompt();
         console.log(callEdit);
-        const callEditList = prevState.map((item, i) => {
-            return i === index ? callEdit : item;
+
+        setCallList((prevState) => {
+            const callEditList = prevState.map((item, i) => {
+                return i === index ? callEdit : item;
+            });
+            return callEditList;
         });
-        return callEditList;
     };
 
     const numberDelete = (index) => {
