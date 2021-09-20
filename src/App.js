@@ -21,6 +21,8 @@ function App() {
     const [click, setClick] = useState('');
     const [inputNumber, setInputNumber] = useState('');
     const [userName, setUserName] = useState('');
+    const [callBook, setCallBook] = useState('');
+    const [callList, setCallList] = useState([]);
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -143,6 +145,28 @@ function App() {
     const toSubmit = (e) => {
         e.preventDefault();
         console.log(userName, inputNumber);
+    };
+
+    const onCallbook = (e) => {
+        console.log(callBook);
+        const callRegex = /^[0-9\b -]{0,11}$/;
+        if (callRegex.test(e.target.value)) {
+            setCallBook(e.target.value);
+        }
+    };
+    const addCallbook = () => {
+        console.log(callBook);
+        if (!callBook) {
+            alert('put your phone Number');
+            return;
+        }
+        setCallList((prevState) => [...prevState, callBook]);
+        setCallBook('');
+    };
+    const numberEdit = (index) => {
+        console.log(item);
+        const callEdit = prompt();
+        console.log(callEdit);
     };
 
     // JSX
@@ -279,6 +303,17 @@ function App() {
                 <input type="text" value={inputNumber} onChange={numberChange} />
                 <button type="submit">가입 </button>
             </form>
+            <hr />
+            <p>전화번호부</p>
+            <input type="text" value={callBook} onChange={onCallbook} />
+            <button onClick={addCallbook}>ADD</button>
+            {callList.map((item, index) => (
+                <div key={index}>
+                    <input value={item} readOnly />
+                    <button onClick={() => numberEdit(index)}>Edit</button>
+                    <button onClick={() => numberDelete(index)}>Delete</button>
+                </div>
+            ))}
         </div>
     );
 }
