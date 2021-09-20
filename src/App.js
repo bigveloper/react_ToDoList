@@ -140,6 +140,10 @@ function App() {
             setUserName(e.target.value);
         }
     };
+    const toSubmit = (e) => {
+        e.preventDefault();
+        console.log(userName, inputNumber);
+    };
 
     // JSX
     return (
@@ -270,8 +274,11 @@ function App() {
             <button onDoubleClick={onDbClick}>doubleClick</button>
             <hr />
             <p>정규식 표현</p>
-            userName : <input type="text" value={userName} onChange={userNameChange} />
-            phoneNumber : <input type="text" value={inputNumber} onChange={numberChange} />
+            <form onSubmit={toSubmit}>
+                <input type="text" value={userName} onChange={userNameChange} />
+                <input type="text" value={inputNumber} onChange={numberChange} />
+                <button type="submit">가입 </button>
+            </form>
         </div>
     );
 }
