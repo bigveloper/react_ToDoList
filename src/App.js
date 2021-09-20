@@ -187,8 +187,11 @@ function App() {
         });
     };
 
-    const onInCount = (e) => setCount(e.target.value);
-    console.log(count);
+    const onInCount = (e) => {
+        console.log(count);
+        setCount(e.target.value);
+        return;
+    };
 
     // JSX
     return (
@@ -220,10 +223,10 @@ function App() {
             <hr />
             <p> Radio </p>
             <form>
-                <input type="radio" value={isRadio} id="radio" checked={isRadio} onClick={clickOnRadio} />
+                <input type="radio" value={isRadio} id="radio" onClick={clickOnRadio} />
                 Radio 어렵네
                 <br />
-                <input type="radio" value={isRadio} id="radio2" checked={isRadio} onClick={clickOnRadio} />
+                <input type="radio" value={isRadio} id="radio2" onClick={clickOnRadio} />
                 Radio 쉽네
             </form>
             <hr />
