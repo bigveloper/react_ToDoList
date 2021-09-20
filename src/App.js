@@ -18,13 +18,12 @@ function App() {
     const [user, setUser] = useState('');
     const [tdSelect, setTdSelect] = useState('');
     const languageList = ['JavaScript', 'HTML', 'CSS'];
-    const [arr, setArr] = useState('');
-    const [arrlist, setArrlist] = useState([]);
     const [click, setClick] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
     const onClick = () => {
+        console.log(value);
         if (!value) {
             alert('write your todos');
         }
@@ -116,18 +115,14 @@ function App() {
         console.log(tdSelect);
         return;
     };
-    const onArr = (e) => setArr(e.target.value);
-    const addArr = () => {
-        console.log(arr);
-        if (!value) {
-            alert('Array');
-        }
-        setArrlist((prevState) => [...prevState, value]);
-        setArr('');
-    };
 
     const ondblclick = (e) => setClick(e.target.value);
-    const doubleClick
+    const onDbClick = () => {
+        console.log(click);
+        if (!click) {
+            alert('anything put yor message');
+        }
+    };
 
     // JSX
     return (
@@ -239,16 +234,6 @@ function App() {
                 </tr>
             </table>
             <hr />
-            <p>array</p>
-            <input value={arr} onChange={onArr} />
-            <button onClick={addArr}>ADD</button>
-            <hr />
-            {arrlist.map((item, index) => (
-                <div key={index}>
-                    <input key={item} readOnly />
-                </div>
-            ))}
-            <hr />
             <p> ul li</p>
             <ul>
                 <li>
@@ -259,8 +244,8 @@ function App() {
             </ul>
             <hr />
             <p>onDbClick</p>
-            <input value={click} onChang={ondblclick} />
-            <button onDoubleClick={doubleClick}>DoubleClick</button>
+            <input value={click} onChange={ondblclick} />
+            <button onDoubleClick={onDbClick}>doubleClick</button>
         </div>
     );
 }
