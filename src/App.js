@@ -26,6 +26,7 @@ function App() {
     const [count, setCount] = useState(0);
     const [selbox, setSelbox] = useState('');
     const selboxList = ['MacBook', 'Gram', 'Lenovo', 'Asus', 'Samsung', 'Dell'];
+    const [laptop, setLaptop] = useState('');
 
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -200,6 +201,10 @@ function App() {
         setSelbox(e.target.value);
     };
 
+    const flaptop = () => {
+        console.log(!laptop);
+        setLaptop(!laptop);
+    };
     // JSX
     return (
         <div className="App">
@@ -229,13 +234,15 @@ function App() {
             React 가 좋은가요? <input type="checkbox" checked={isChecked} onChange={checkOnChange} />
             <hr />
             <p> Radio </p>
-            <form>
-                <input type="radio" value={isRadio} id="radio" onClick={clickOnRadio} />
+            <label>
+                <input type="radio" value={isRadio} id="radio" onChange={clickOnRadio} />
                 Radio 어렵네
-                <br />
-                <input type="radio" value={isRadio} id="radio2" onClick={clickOnRadio} />
+            </label>
+            <br />
+            <label>
+                <input type="radio" value={isRadio} id="radio2" onChange={clickOnRadio} />
                 Radio 쉽네
-            </form>
+            </label>
             <hr />
             <p>Form Tag</p>
             <form onSubmit={clickSubmit}>
@@ -359,6 +366,10 @@ function App() {
                     </option>
                 ))}
             </select>
+            <hr />
+            <p>you are favorite laptap</p>
+            <input type="radio" value={laptop} id="MacBook" name="MacBook" checked="false" onclick={flaptop} />
+            <input type="radio" value={laptop} id="LgGram" name="LgGram" onclick={flaptop} />
         </div>
     );
 }
