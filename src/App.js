@@ -164,9 +164,23 @@ function App() {
         setCallBook('');
     };
     const numberEdit = (index) => {
-        console.log(item);
+        console.log(value);
         const callEdit = prompt();
         console.log(callEdit);
+        const callEditList = prevState.map((item, i) => {
+            return i === index ? callEdit : item;
+        });
+        return callEditList;
+    };
+
+    const numberDelete = (index) => {
+        console.log(index);
+        setCallList((prevState) => {
+            const callDeleteList = prevState.filter((item, i) => {
+                return i !== index && item;
+            });
+            return callDeleteList;
+        });
     };
 
     // JSX
